@@ -1,0 +1,39 @@
+{
+  "name": "ts-docs",
+  "private": false,
+  "version": "0.0.8",
+  "description": "Simple CLI tool to document typescript projects.",
+  "keywords": [
+    "typescript",
+    "cli"
+  ],
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "bin": "./dist/cli.js",
+  "files": [
+    "dist/**/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/skulptur/ts-docs.git"
+  },
+  "scripts": {
+    "dev": "ts-node ./src/cli.ts",
+    "clean": "rimraf ./dist/ ./exec/",
+    "build": "npm run clean && tsc",
+    "bundle": "npm run build && pkg . --out-dir ./exec/",
+    "doc": "ts-node ./src/cli.ts -i ./src/index.ts -o output.md"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.5",
+    "pkg": "^5.8.1",
+    "rimraf": "^2.6.3",
+    "ts-node": "^10.9.1"
+  },
+  "dependencies": {
+    "commander": "^10.0.0",
+    "markdown-fns": "^0.1.1",
+    "typedoc": "^0.23.28",
+    "typescript": "^5.0.2"
+  }
+}
